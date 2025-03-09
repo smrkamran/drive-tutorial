@@ -236,7 +236,7 @@ export function DriveUI() {
     return currentPath.join("/")
   }
 
-  const currentFolderContents = mockData[getCurrentFolderKey()] || []
+  const currentFolderContents = mockData[getCurrentFolderKey()] ?? []
 
   // Navigate to a folder
   const navigateToFolder = (folderPath: string) => {
@@ -434,7 +434,7 @@ export function DriveUI() {
                       {item.name}
                     </td>
                     <td className="p-3 text-sm text-muted-foreground">{item.modified}</td>
-                    <td className="p-3 text-sm text-muted-foreground">{item.size || "--"}</td>
+                    <td className="p-3 text-sm text-muted-foreground">{item.size ?? "--"}</td>
                   </tr>
                 ))}
               </tbody>

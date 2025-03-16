@@ -1,6 +1,5 @@
-import { DriveUI } from "~/components/drive-ui"
+import GoogleDriveClone from "~/components/drive-ui";
 
 export default function Home() {
-  return <DriveUI />
+  return <GoogleDriveClone />;
 }
-

@@ -3,13 +3,13 @@
 import { Upload, ChevronRight } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { FileRow, FolderRow } from "~/app/file-row";
-import type { files, folders } from "~/server/db/schema";
+import type { files_table, folders_table } from "~/server/db/schema";
 import Link from "next/link";
 
 export default function DriveContents(props: {
-  files: (typeof files.$inferInsert)[];
-  folders: (typeof folders.$inferInsert)[];
-  parents: (typeof folders.$inferInsert)[];
+  files: (typeof files_table.$inferInsert)[];
+  folders: (typeof folders_table.$inferInsert)[];
+  parents: (typeof folders_table.$inferInsert)[];
 }) {
   const handleUpload = () => {
     alert("Upload functionality would be implemented here");

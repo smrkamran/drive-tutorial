@@ -1,12 +1,9 @@
-import DriveContents from "~/components/drive-contents";
-import { db } from "~/server/db";
-import {
-  files as filesSchema,
-  folders as foldersSchema,
-} from "~/server/db/schema";
+import Link from "next/link";
 
-export default async function Home() {
-  const files = await db.select().from(filesSchema);
-  const folders = await db.select().from(foldersSchema);
-  return <DriveContents files={files} folders={folders} />;
+export default async function HomePage() {
+  return (
+    <div className="flex h-screen w-screen items-center justify-center">
+      <Link href="/f/1">Go to root folder</Link>
+    </div>
+  );
 }

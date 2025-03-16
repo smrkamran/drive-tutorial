@@ -11,6 +11,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { UploadButton } from "./uploadthing";
 
 export default function DriveContents(props: {
   files: (typeof files_table.$inferInsert)[];
@@ -63,6 +64,7 @@ export default function DriveContents(props: {
             ))}
           </ul>
         </div>
+        <UploadButton endpoint="imageUploader" />
       </div>
     </div>
   );

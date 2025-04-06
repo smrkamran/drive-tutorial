@@ -1,12 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import { Cloud } from "lucide-react";
-import { Button } from "~/components/ui/button";
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
-import { SignInButton } from "@clerk/nextjs";
 
-export default function Home() {
+export default function Home(props: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="w-full px-6 py-4">
@@ -18,7 +12,7 @@ export default function Home() {
         </div>
       </header>
       <main className="flex flex-1 flex-col items-center justify-center px-4">
-        <SignInButton forceRedirectUrl={"/drive"} />
+        {props.children}
       </main>
       <footer className="px-6 py-6 text-center text-sm text-muted-foreground">
         <p>© {new Date().getFullYear()} CloudDrive. All rights reserved.</p>

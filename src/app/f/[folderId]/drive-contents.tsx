@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-import { FileRow, FolderRow } from "~/app/file-row";
+import { FileRow, FolderRow } from "~/app/f/[folderId]/file-row";
 import type { files_table, folders_table } from "~/server/db/schema";
 import Link from "next/link";
 import {
@@ -11,7 +11,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-import { UploadButton } from "./uploadthing";
+import { UploadButton } from "../../../components/uploadthing";
 import { useRouter } from "next/navigation";
 
 export default function DriveContents(props: {

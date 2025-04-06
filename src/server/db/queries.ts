@@ -40,7 +40,8 @@ export const QUERIES = {
     return db
       .select()
       .from(foldersSchema)
-      .where(eq(foldersSchema.parent, parsedFolderId));
+      .where(eq(foldersSchema.parent, parsedFolderId))
+      .orderBy(foldersSchema.id);
   },
 
   getFolderById: async function (folderId: number) {

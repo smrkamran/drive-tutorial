@@ -12,7 +12,6 @@ export const QUERIES = {
   getAllParentsForFolder: async function (folderId: number) {
     const parents = [];
     let currentId: number | null = folderId;
-
     while (currentId !== null) {
       const folder = await db
         .selectDistinct()
@@ -20,7 +19,7 @@ export const QUERIES = {
         .where(eq(foldersSchema.id, currentId));
 
       if (!folder[0]) {
-        throw new Error("Parent not found");
+        break;
       }
 
       parents.unshift(folder[0]);
@@ -42,6 +41,14 @@ export const QUERIES = {
       .from(foldersSchema)
       .where(eq(foldersSchema.parent, parsedFolderId));
   },
+
+  getFolderById: async function (folderId: number) {
+    const folder = await db
+      .select()
+      .from(foldersSchema)
+      .where(eq(foldersSchema.id, folderId));
+    return folder[0];
+  },
 };
 
 export const MUTATIONS = {
@@ -54,6 +61,8 @@ export const MUTATIONS = {
     };
     userId: string;
   }) {
-    return await db.insert(filesSchema).values({ ...input.file, parent: 1 });
+    return await db
+      .insert(filesSchema)
+      .values({ ...input.file, ownerId: input.userId });
   },
 };

@@ -21,7 +21,7 @@ export function FileRow(props: { file: typeof files_table.$inferInsert }) {
           </a>
         </div>
         <div className="col-span-3 text-gray-400">File</div>
-        <div className="col-span-3 text-gray-400">2 MB</div>
+        <div className="col-span-3 text-gray-400">{file.size}</div>
       </div>
     </li>
   );
